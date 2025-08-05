@@ -1,6 +1,6 @@
 import fs from "fs"
 import dotenv from "dotenv"
-
+import contactRoute from "./routes/contact.js"
 // Uncomment the following line to log the content of the .env file
 // console.log("ENV file content:\n", fs.readFileSync(".env", "utf8"))
 
@@ -23,7 +23,7 @@ dotenv.config()
 })
 
 const PORT = process.env.PORT || 7000
-
+app.use("/api/contact", contactRoute)
 await connectDB()
   .then(() => {
     app.listen(PORT, () => {
